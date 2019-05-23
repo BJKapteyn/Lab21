@@ -36,9 +36,26 @@ namespace Lab21.Controllers
 
         public ActionResult SubmissionView(Registration register)
         {
+            if(register.password.Length < 8)
+            {
+                Session["Error"] = "Make sure the password is more than 8 characters long.";
+                return RedirectToAction("Register");
+            }
+            if(register.password != register.rePassword)
+            {
+                Session["Error"] = "The passwords did not match";
+                return RedirectToAction("Register");
+            }
             ViewBag.name = register.name;
             ViewBag.password = register.password;
             ViewBag.email = register.email;
+            ViewBag.coffeeType = register.coffeeType;
+            ViewBag.hotOrCold = register.hotOrCold;
+            return View();
+        }
+
+        public ActionResult Properties()
+        {
             return View();
         }
     }

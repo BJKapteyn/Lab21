@@ -3,11 +3,87 @@
     ViewBag.Title = "Registeration";
 }
 <h2>@ViewBag.Title</h2>
+<h1>@Session["Error"]</h1>
 <p>Please enter the information as follows:</p>
 
 <form action="SubmissionView" method="post">
-    Name:<input type="text" name="name" placeholder="Enter name" /><br />
-    Email:<input type="email" name="email" placeholder="Enter email" /><br />
-    Password:<input type="password" name="password" placeholder="Enter password" /><br />
-    <input type="submit" />
+    <table class="infoTable">
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" name="name" placeholder="Enter name" />
+            </td>
+            <td class="space">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="email" name="email" placeholder="Enter email" />
+            </td>
+            <td class="space">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" name="password" placeholder="Enter password" />
+            </td>
+            <td class="space">
+                &nbsp;
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                Re-enter Password:
+            </td>
+            <td>
+                <input type="password" name="rePassword" placeholder="Re-enter password" />
+            </td>
+            <td class="space">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Do you like hot or cold coffee?
+            </td>
+            <td>
+                <input type="text" name="hotOrCold" id="hotOrCold" placeholder="Enter 'hot or 'cold'" />
+            </td>
+            <td>
+                <span id="mistakesMade"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="topVert">
+                What's your favorite coffee?
+
+            </td>
+            <td>
+                <input type="radio" name="coffeeType" value="light" />Light<br />
+                <input type="radio" name="coffeeType" value="medium" />Medium<br />
+                <input type="radio" name="coffeeType" value="dark" />Dark<br />
+            </td>
+            <td class="space">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="submitButt" type="submit" />
+            </td>
+        </tr>
+    </table>
 </form>
+<script src="~/Scripts/MyJS.js"></script>
+@Html.ActionLink("Take me home", "Index", "Home")
